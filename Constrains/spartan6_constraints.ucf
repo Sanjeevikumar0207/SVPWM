@@ -1,0 +1,33 @@
+####################################################
+# Spartan-6 XC6SLX25 Pin Constraint File
+# SVPWM 3-Phase Inverter Control
+####################################################
+
+# Clock input (50 MHz)
+NET "clk" LOC = P56 | IOSTANDARD = LVCMOS33;
+
+# Reset input
+NET "reset" LOC = P57 | IOSTANDARD = LVCMOS33;
+
+####################################################
+# PWM Outputs for 3-Phase Inverter
+####################################################
+
+# Phase A
+NET "PWM_A"      LOC = P80 | IOSTANDARD = LVCMOS33;
+NET "PWM_A_BAR"  LOC = P81 | IOSTANDARD = LVCMOS33;
+
+# Phase B
+NET "PWM_B"      LOC = P82 | IOSTANDARD = LVCMOS33;
+NET "PWM_B_BAR"  LOC = P83 | IOSTANDARD = LVCMOS33;
+
+# Phase C
+NET "PWM_C"      LOC = P84 | IOSTANDARD = LVCMOS33;
+NET "PWM_C_BAR"  LOC = P85 | IOSTANDARD = LVCMOS33;
+
+####################################################
+# Timing constraints
+####################################################
+
+NET "clk" TNM_NET = sys_clk;
+TIMESPEC TS_sys_clk = PERIOD "sys_clk" 20 ns HIGH 50%;
